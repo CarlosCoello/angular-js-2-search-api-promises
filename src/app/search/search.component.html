@@ -1,0 +1,34 @@
+<div class="container">
+  <header class="jumbotron">
+    <h1>Itunes API with toPromise</h1>
+    <p>Just type some words, its that easy</p>
+    <small>We hope you like this app</small>
+  </header><!-- .jumbotron -->
+</div><!-- .container -->
+
+<div class="container">
+  <form novalidate #f="ngForm" (ngSubmit)="search()">
+    <div class="form-group">
+      <label for="search">Search for music</label>
+      <input type="search" class="form-control" name="term" [(ngModel)]="term">
+    </div>
+    <button class="btn btn-primary">Search</button>
+  </form><!-- form -->
+</div><!-- .container -->
+
+<div class="container">
+  <hr>
+  <p class="lead" *ngIf="loading">Loading..</p>
+</div><!-- .container -->
+<br>
+
+<div class="container">
+  <ul class="list-group">
+    <li class="list-group-item" *ngFor="let m of itunes.results">
+      <img src="{{m.artworkUrl30}}">
+      <a target="_blank" href="{{m.trackViewUrl}}">
+        {{m.artistName}}
+      </a>
+    </li>
+  </ul><!-- .list-group -->
+</div><!-- .container -->
